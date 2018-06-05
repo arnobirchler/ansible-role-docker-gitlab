@@ -1,14 +1,16 @@
 ---
-# tasks file for ansible-role-create-account 
-- name: "DOCKER | GITLAB | PULL"
-  command: "docker pull gitlab/gitlab-ce:latest"
-- name: "DOCKER | GITLAB | CREATE dir"
+# tasks file for ansible-role-docker-gitlab 
+- name: DOCKER | GITLAB | CREATE composer dir
   file:
     path: "/opt/docker/compose/gitlab"
     state: directory
-- name: "DOCKER | GITLAB | COPY template"
-  templates:
-    src: "docker-compose.j2"
-    dst: "/opt/docker/compose/gitlab/docker-compose.yml"
-- name: "DOCKER | GITLAB | RUN"
-  command: "cd /opt/docker/compose/gitlab && docker-compose up -d"
+# - name: DOCKER | GITLAB | CREATE dir
+#   file:
+#     path: "/opt/docker/compose/gitlab"
+#     state: exist
+# - name: "DOCKER | GITLAB | COPY template"
+#   templates:
+#     src: "docker-compose.j2"
+#     dst: "/opt/docker/compose/gitlab/docker-compose.yml"
+# - name: "DOCKER | GITLAB | RUN"
+#   command: "cd /opt/docker/compose/gitlab && docker-compose up -d"
