@@ -7,6 +7,6 @@
 - name: "DOCKER | GITLAB | COPY template"
   template:
     src: "docker-compose.j2"
-    dst: "/opt/docker/compose/gitlab/docker-compose.yml"
+    dest: "/opt/docker/compose/gitlab/docker-compose.yml"
 - name: "DOCKER | GITLAB | RUN"
   command: "cd /opt/docker/compose/gitlab && docker-compose up -d"
