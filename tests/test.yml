@@ -4,6 +4,7 @@
   vars:
     user: "app"
     sudoer: "deployer"
+    domain: "gitlab.arno-birchler.com"
 
   pre_tasks:
     - name: Update apt cache.

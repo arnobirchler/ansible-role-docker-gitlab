@@ -1,12 +1,14 @@
 ---
 # tasks file for ansible-role-create-account 
-- name: "DOCKER | GITLAB | Run docker image"
-  command: "docker run --detach \
-    --hostname gitlab.example.com \
-    --publish 443:443 --publish 80:80 --publish 22:22 \
-    --name gitlab \
-    --restart always \
-    --volume /srv/gitlab/config:/etc/gitlab \
-    --volume /srv/gitlab/logs:/var/log/gitlab \
-    --volume /srv/gitlab/data:/var/opt/gitlab \
-    gitlab/gitlab-ce:latest"
+- name: "DOCKER | GITLAB | PULL"
+  command: "docker pull gitlab/gitlab-ce:latest"
+- name: "DOCKER | GITLAB | CREATE dir"
+  file:
+    path: "/opt/docker/compose/gitlab"
+    state: directory
+- name: "DOCKER | GITLAB | COPY template"
+  templates:
+    src: "docker-compose.j2"
+    dst: "/opt/docker/compose/gitlab/docker-compose.yml"
+- name: "DOCKER | GITLAB | RUN"
+  command: "cd /opt/docker/compose/gitlab && docker-compose up -d"

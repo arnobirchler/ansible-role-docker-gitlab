@@ -12,7 +12,10 @@ No requierements needed
 Role Variables
 --------------
 
-No variables needed.
+```
+- gitlab_ip: '192.168.0.1'
+- gitlab_domain: 'gitlab.example.com'
+```
 
 Dependencies
 ------------
