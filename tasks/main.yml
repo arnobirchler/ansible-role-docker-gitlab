@@ -4,11 +4,12 @@
   command: "pwd"
 - name: DOCKER | GITLAB | CREATE composer dir
   file:
-    path: "~/compose/gitlab"
+    path: "/home/{{ sudoer }}/docker-compose-gitlab"
     state: directory
+    owner: {{ sudoer }}
 - name: "DOCKER | GITLAB | COPY template"
   template:
     src: "docker-compose.j2"
-    dest: "~/compose/gitlab/docker-compose.yml"
+    dest: "/home/{{ sudoer }}/docker-compose-gitlab/docker-compose.yml"
 - name: "DOCKER | GITLAB | RUN"
-  command: "cd ~/compose/gitlab && docker-compose up -d"
+  command: "docker-compose up -d --project-directory /home/{{ sudoer }}/docker-compose-gitlab -p gitlab"
