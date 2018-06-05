@@ -1,2 +1,3 @@
 ---
 # vars file for ansible-role-create-account
+compose_dir: "/home/{{ sudoer }}/docker-compose-gitlab"
