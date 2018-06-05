@@ -1,6 +1,6 @@
 Ansible Role | Template
 =========
-[![Build Status](https://travis-ci.org/arnobirchler/ansible-role-template.svg?branch=master)](https://travis-ci.org/arnobirchler/ansible-role-template)
+[![Build Status](https://travis-ci.org/arnobirchler/ansible-role-docker-gitlab.svg?branch=master)](https://travis-ci.org/arnobirchler/ansible-role-docker-gitlab)
 
 Empty role with travis-ci configuration
 
