@@ -6,7 +6,7 @@
   file:
     path: "/home/{{ sudoer }}/docker-compose-gitlab"
     state: directory
-    owner: {{ sudoer }}
+    owner: "{{ sudoer }}"
 - name: "DOCKER | GITLAB | COPY template"
   template:
     src: "docker-compose.j2"
