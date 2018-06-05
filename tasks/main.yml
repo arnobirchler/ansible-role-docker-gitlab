@@ -1,10 +1,14 @@
 ---
 # tasks file for ansible-role-docker-gitlab 
+- name: PWD
+  command: "pwd"
 - name: DOCKER | GITLAB | CREATE composer dir
-  command: "mkdir /opt/docker/compose/gitlab -p"
+  file:
+    path: "~/compose/gitlab"
+    state: directory
 - name: "DOCKER | GITLAB | COPY template"
   template:
     src: "docker-compose.j2"
-    dest: "/opt/docker/compose/gitlab/docker-compose.yml"
+    dest: "~/compose/gitlab/docker-compose.yml"
 - name: "DOCKER | GITLAB | RUN"
-  command: "cd /opt/docker/compose/gitlab && docker-compose up -d"
+  command: "cd ~/compose/gitlab && docker-compose up -d"
