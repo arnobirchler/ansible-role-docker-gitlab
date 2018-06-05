@@ -1,11 +1,11 @@
 ---
 # tasks file for ansible-role-docker-gitlab 
-- name: DOCKER | GITLAB | CREATE composer dir
+- name: DOCKER | GITLAB | CREATE dir {{ compose_dir }}
   file:
     path: "{{ compose_dir }}"
     state: directory
     owner: "{{ sudoer }}"
-- name: "DOCKER | GITLAB | COPY template"
+- name: "DOCKER | GITLAB | COPY template {{ compose_dir }}/docker-compose.yml"
   template:
     src: "docker-compose.j2"
     dest: "{{ compose_dir }}/docker-compose.yml"

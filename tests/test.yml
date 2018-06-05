@@ -5,6 +5,7 @@
     user: "app"
     sudoer: "deployer"
     domain: "gitlab.arno-birchler.com"
+    compose_dir: "."
 
   pre_tasks:
     - name: Update apt cache.
